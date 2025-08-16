@@ -1,0 +1,20 @@
+# Dependencies
+# This is the most important one!
+node_modules/
+
+# Environment Variables
+# Contains sensitive data like API keys and database passwords
+.env
+
+# Logs
+# Log files that are generated during development or in production
+*.log
+npm-debug.log*
+
+# IDE / Editor specific files
+# For WebStorm
+.idea/
+
+# OS-specific files
+# For macOS
+.DS_Store

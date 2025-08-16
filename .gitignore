@@ -1,0 +1,5 @@
+# IDE configuration
+.idea/
+
+# macOS file
+.DS_Store
