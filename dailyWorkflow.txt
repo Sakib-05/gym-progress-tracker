@@ -1,0 +1,5 @@
+1. open 2 terminals
+2. in terminal 1 cd into server and run 'npm start'
+3. in terminal 2 cd into client and run 'npm run dev'
+4. continue to code
+5. terminate all terminals
