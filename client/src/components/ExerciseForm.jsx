@@ -1,13 +1,8 @@
 import React, {useState} from 'react';
-import {browser} from "globals";
+import axios from "axios";
 
 const ExerciseForm = ({ exercises, setExercises }) => {
 
-
-    const handleDateChange = (e) => {
-        setDate(e.target.value);
-        console.log(date);
-    }
     const formatDate = (dateString) => {
         // Return a placeholder if the date isn't set
         if (!dateString) return "Please select a date.";
@@ -25,18 +20,21 @@ const ExerciseForm = ({ exercises, setExercises }) => {
         // 'en-GB' formats it as Day Month Year (e.g., 25 August 2025)
         return new Intl.DateTimeFormat('en-GB', options).format(date);
     };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
-        const newExercise = {
+        const newExerciseData = {
             exerciseName: form.exerciseName.value,
+            muscleGroup: form.muscleGroup.value,
             sets: parseInt(form.sets.value),
             reps: parseInt(form.reps.value),
             weight: parseFloat(form.weight.value),
-            date: form.date.value
+            date: formatDate(form.date.value)
         };
-        setExercises([...exercises, newExercise]);
-        form.reset();
+        axios.post('http://localhost:5001/api/exercise-logs/add', newExerciseData).then(res => {
+                console.log(res.data); // Should log "Exercise log added!"
+                form.reset();}).catch(err => console.log('Error: ' + err));
     }
 
     return (
@@ -46,6 +44,19 @@ const ExerciseForm = ({ exercises, setExercises }) => {
             <form onSubmit={handleSubmit} style={{border:'1px solid black', margin:'0px'}}>
                 <label htmlFor="exerciseName">Exercise Name:</label>
                 <input type="text" id="exerciseName" name="exerciseName" required />
+                <br/>
+                <label htmlFor="muscleGroup">Muscle Group:</label>
+                <select name="muscleGroup" id="muscleGroup" required>
+                    <option value="" disabled selected>Select your option</option>
+                    <option value="chest">Chest</option>
+                    <option value="triceps">triceps</option>
+                    <option value="back">Back</option>
+                    <option value="biceps">Arms</option>
+                    <option value="legs">Legs</option>
+                    <option value="shoulders">Shoulders</option>
+                    <option value="core">Core</option>
+                </select>
+
                 <br/>
                 <label htmlFor="sets">Sets:</label>
                 <input type="number" id="sets" name="sets" required />
