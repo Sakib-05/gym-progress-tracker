@@ -1,6 +1,6 @@
 const router = require('express').Router();
 //this is exerciseLog Schema
-let ExerciseLog = require('../models/exerciseLog');
+let ExerciseLog = require('../models/exercise.model');
 
 
 // This handles the POST request to http://localhost:5001/api/exercise-logs/add
@@ -24,6 +24,13 @@ router.route('/add').post((req, res) => {
     newExerciseLog.save()
         .then(() => res.json('Exercise log added!')) // Send a success message back
         .catch(err => res.status(400).json('Error: ' + err)); // Or an error
+});
+
+// This handles the POST request to http://localhost:5001/api/exercise-logs/get
+router.route('/get').post((req, res) => {
+    ExerciseLog.find() // Find all exercise logs in the database
+        .then(exerciseLogs => res.json(exerciseLogs))
+        .catch(err => res.status(400).json('Error: ' + err)); // Or send an error
 });
 
 module.exports = router;

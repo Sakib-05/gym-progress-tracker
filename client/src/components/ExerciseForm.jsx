@@ -1,4 +1,3 @@
-import React, {useState} from 'react';
 import axios from "axios";
 
 const ExerciseForm = ({ exercises, setExercises }) => {
@@ -51,7 +50,7 @@ const ExerciseForm = ({ exercises, setExercises }) => {
                     <option value="chest">Chest</option>
                     <option value="triceps">triceps</option>
                     <option value="back">Back</option>
-                    <option value="biceps">Arms</option>
+                    <option value="biceps">biceps</option>
                     <option value="legs">Legs</option>
                     <option value="shoulders">Shoulders</option>
                     <option value="core">Core</option>

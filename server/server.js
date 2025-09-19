@@ -14,8 +14,8 @@ mongoose.connect(process.env.ATLAS_URI)
     .then(() => console.log("MongoDB connection established successfully"))
     .catch(err => console.log(err));
 
-const exerciseLogsRouter = require('./routes/exerciseLogs');
-app.use('/api/exercise-logs', exerciseLogsRouter);
+const exercisesRouter = require('./routes/exercises');
+app.use('/api/exercise-logs', exercisesRouter);
 
 
 app.get('/', (req, res) => {
