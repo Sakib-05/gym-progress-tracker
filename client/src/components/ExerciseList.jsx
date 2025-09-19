@@ -12,6 +12,8 @@ const ExerciseList = () => {
         }).catch(err => console.log('Error: ' + err));     
     }, []);
 
+    //start of new feature to delete an exercise doc
+
     return (
         <div className="ExerciseList" style={{border:'1px solid black'}}>
             <h1>hello there this is the Exercise List area</h1>
