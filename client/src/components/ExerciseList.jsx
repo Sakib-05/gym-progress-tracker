@@ -13,6 +13,7 @@ const ExerciseList = () => {
     }, []);
 
     //start of new feature to delete an exercise doc
+    //testing new direct push method for terminal command
 
     return (
         <div className="ExerciseList" style={{border:'1px solid black'}}>
