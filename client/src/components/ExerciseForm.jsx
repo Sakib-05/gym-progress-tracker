@@ -30,7 +30,7 @@ const ExerciseForm = ({ exercises, setExercises }) => {
             sets: parseInt(form.sets.value),
             reps: parseInt(form.reps.value),
             weight: parseFloat(form.weight.value),
-            date: formatDate(form.date.value)
+            date: form.date.value
         };
         axios.post('http://localhost:5001/api/exercise-logs/add', newExerciseData).then(res => {
                 console.log(res.data); // Should log "Exercise log added!"

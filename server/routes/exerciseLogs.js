@@ -5,6 +5,7 @@ let ExerciseLog = require('../models/exerciseLog');
 
 // This handles the POST request to http://localhost:5001/api/exercise-logs/add
 router.route('/add').post((req, res) => {
+    console.log(req.body);
     // Get the data from the form (the waiter brings this from the frontend)
     const { exerciseName, muscleGroup, sets, reps, weight,date } = req.body;
 
@@ -24,3 +25,5 @@ router.route('/add').post((req, res) => {
         .then(() => res.json('Exercise log added!')) // Send a success message back
         .catch(err => res.status(400).json('Error: ' + err)); // Or an error
 });
+
+module.exports = router;
