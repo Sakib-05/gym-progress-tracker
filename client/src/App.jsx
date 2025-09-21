@@ -7,10 +7,6 @@ import ExerciseList from "./components/ExerciseList.jsx";
 import Description from "./components/Description.jsx";
 
 function App() {
-    const [exercises, setExercises] = useState([
-        {exerciseName:"bench press", sets:3, reps:10, weight:60, date:"2023-10-01"},
-        {exerciseName:"squat", sets:4, reps:8, weight:80, date:"2023-10-02"},
-    ]);
 
     return (
       <div className="App">
@@ -19,9 +15,9 @@ function App() {
               <div style={{display: 'flex', gap: '50px'}}>
                   <SideBar></SideBar>
                   <Routes>
-                      <Route path="/ExerciseForm" element={<ExerciseForm exercises={exercises} setExercises={setExercises}/>} />
-                      <Route path="/ExerciseList" element={<ExerciseList exercises={exercises} />} />
-                      <Route path="/description" element={<Description />} />
+                      <Route path="/ExerciseForm" element={<ExerciseForm/>} />
+                      <Route path="/ExerciseList" element={<ExerciseList/>} />
+                      <Route path="/description" element={<Description/>} />
                   </Routes>
 
               </div>

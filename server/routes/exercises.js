@@ -33,5 +33,11 @@ router.route('/get').post((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err)); // Or send an error
 });
 
+// router.route('/get').get((req, res) => {
+//     ExerciseLog.find() // Find all exercise logs in the database
+//         .then(exerciseLogs => res.json(exerciseLogs))
+//         .catch(err => res.status(400).json('Error: ' + err)); // Or send an error
+// });
+
 
 module.exports = router;

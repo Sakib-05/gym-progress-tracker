@@ -72,23 +72,6 @@ const ExerciseForm = ({ exercises, setExercises }) => {
                 <button type="submit">Add Exercise</button>
             </form>
 
-            <div>
-
-                <h2>Logged Exercises</h2>
-                <div>
-                    {exercises.map((exercise, index) => (
-                        <div key={index} style={{border:'1px solid gray', padding:'10px'}}>
-                            <h3 key={index}>{exercise.exerciseName}</h3>
-                            <p>Sets: {exercise.sets}</p>
-                            <p>Reps: {exercise.reps}</p>
-                            <p>Weight: {exercise.weight} Kg</p>
-                            <p>Date: {formatDate(exercise.date)}</p>
-                            <hr/>
-                        </div>
-
-                    ))}
-                </div>
-            </div>
 
         </div>
 
