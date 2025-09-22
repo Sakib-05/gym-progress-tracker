@@ -16,6 +16,7 @@ const ExerciseForm = () => {
         axios.post('http://localhost:5001/api/exercise-logs/add', newExerciseData).then(res => {
                 console.log(res.data); // Should log "Exercise log added!"
                 form.reset();}).catch(err => console.log('Error: ' + err));
+        alert('Exercise Added!');
     }
 
     return (
@@ -37,7 +38,6 @@ const ExerciseForm = () => {
                     <option value="shoulders">Shoulders</option>
                     <option value="core">Core</option>
                 </select>
-
                 <br/>
                 <label htmlFor="sets">Sets:</label>
                 <input type="number" id="sets" name="sets" required />

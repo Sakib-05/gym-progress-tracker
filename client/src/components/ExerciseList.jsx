@@ -2,14 +2,21 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const ExerciseList = () => {
-    const [exercises, setExercises] = useState();
+    const [exercises, setExercises] = useState([]);
 
     // load exercises from mongoDB 
     useEffect(() => {
-        axios.post('http://localhost:5001/api/exercise-logs/get').then(res => {
-            setExercises(res.data);
-            console.log(res.data);
-        }).catch(err => console.log('Error: ' + err));     
+        async function fetchExercises() {
+            try {
+                // Should be GET, but your backend uses POST. You may want to fix it.
+                const res = await axios.post('http://localhost:5001/api/exercise-logs/get');
+                setExercises(res.data);
+            } 
+            catch(err) {
+                console.error('Failed to fetch exercises', err);
+            }
+        }
+        fetchExercises();
     }, []);
 
     //start of new feature to delete an exercise doc
