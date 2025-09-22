@@ -1,24 +1,6 @@
 import axios from "axios";
 
-const ExerciseForm = ({ exercises, setExercises }) => {
-
-    const formatDate = (dateString) => {
-        // Return a placeholder if the date isn't set
-        if (!dateString) return "Please select a date.";
-
-        // The input value from type="date" can be off by a day due to timezones.
-        // Parsing it as UTC ensures the correct date is displayed.
-        const date = new Date(dateString + 'T00:00:00');
-
-        const options = {
-            day: 'numeric',   // e.g., 25
-            month: 'numeric',   // e.g., August
-            year: 'numeric'   // e.g., 2025
-        };
-
-        // 'en-GB' formats it as Day Month Year (e.g., 25 August 2025)
-        return new Intl.DateTimeFormat('en-GB', options).format(date);
-    };
+const ExerciseForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();

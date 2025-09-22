@@ -1,4 +1,3 @@
-// client/src/components/ExerciseList.jsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -9,6 +8,7 @@ const ExerciseList = () => {
     useEffect(() => {
         axios.post('http://localhost:5001/api/exercise-logs/get').then(res => {
             setExercises(res.data);
+            console.log(res.data);
         }).catch(err => console.log('Error: ' + err));     
     }, []);
 
