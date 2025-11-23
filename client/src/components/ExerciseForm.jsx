@@ -20,6 +20,8 @@ const ExerciseForm = () => {
       })
       .catch((err) => console.log("Error: " + err));
     alert("Exercise Added!");
+    // send user to the exercise list after adding a new exercise
+    window.location.href = "/ExerciseList";
   };
 
   return (

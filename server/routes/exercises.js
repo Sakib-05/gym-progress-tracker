@@ -40,4 +40,12 @@ router.route('/get').get((req, res) => {
 });
 
 
+router.route('/delete/:id').delete((req, res) => {
+    ExerciseLog.findByIdAndDelete(req.params.id)
+        .then(() => res.json('Exercise log deleted.'))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
+
+
 module.exports = router;
