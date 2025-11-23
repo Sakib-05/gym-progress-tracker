@@ -27,11 +27,25 @@ router.route('/add').post((req, res) => {
 });
 
 // This handles the POST request to http://localhost:5001/api/exercise-logs/get
-router.route('/get').post((req, res) => {
+// router.route('/get').post((req, res) => {
+//     ExerciseLog.find() // Find all exercise logs in the database
+//         .then(exerciseLogs => res.json(exerciseLogs))
+//         .catch(err => res.status(400).json('Error: ' + err)); // Or send an error
+// });
+
+router.route('/get').get((req, res) => {
     ExerciseLog.find() // Find all exercise logs in the database
         .then(exerciseLogs => res.json(exerciseLogs))
         .catch(err => res.status(400).json('Error: ' + err)); // Or send an error
 });
+
+
+router.route('/delete/:id').delete((req, res) => {
+    ExerciseLog.findByIdAndDelete(req.params.id)
+        .then(() => res.json('Exercise log deleted.'))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
 
 
 module.exports = router;
