@@ -24,7 +24,7 @@ const ExerciseList = () => {
   //testing new direct push method for terminal command
 
   return (
-    <div className="ExerciseList" style={{ border: "1px solid black" }}>
+    <div className="ExerciseList" style={{ border: "1px solid black", width:"100%", marginInline:"20px" }}>
       <h1>hello there this is the Exercise List area</h1>
       <div>
         <h2>Logged Exercises</h2>
@@ -33,7 +33,7 @@ const ExerciseList = () => {
             exercises.map((exercise, index) => (
               <div
                 key={index}
-                style={{ border: "1px solid gray", padding: "10px" }}
+                style={{ border: "1px solid gray", padding: "10px", margin: "20px"}}
               >
                 <h3 key={index}>{exercise.exerciseName}</h3>
                 <p>Muscle Group: {exercise.muscleGroup}</p>

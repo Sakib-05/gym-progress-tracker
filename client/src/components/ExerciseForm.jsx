@@ -23,7 +23,7 @@ const ExerciseForm = () => {
   };
 
   return (
-    <div className="ExerciseForm">
+    <div className="ExerciseForm" style={{ marginInline: "50px"}}>
       <h1>hello there this is the Exercise form area</h1>
 
       <form

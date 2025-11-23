@@ -20,7 +20,7 @@ function App() {
         Gym Progress Tracker
       </h1>
       <Router>
-        <div style={{ display: "flex", gap: "50px" }}>
+        <div style={{ display: "flex",height:"100%", width:"100%"}}>
           <SideBar></SideBar>
           <Routes>
             <Route path="/ExerciseForm" element={<ExerciseForm />} />
