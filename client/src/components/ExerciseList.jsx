@@ -21,9 +21,6 @@ const ExerciseList = () => {
     fetchExercises();
   }, []);
 
-  //start of new feature to delete an exercise doc
-  //testing new direct push method for terminal command
-
   async function deleteExercise(id) {
     try {
       const res = await axios.delete(
@@ -35,6 +32,8 @@ const ExerciseList = () => {
       console.error("Failed to delete exercise", err);
     }
   }
+
+// start of the update exercise feature
 
   return (
     <div
